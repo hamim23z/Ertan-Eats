@@ -13,48 +13,91 @@ const floatingWords = [
   "10 out of 10",
   "9 out of 10",
   "Oh wow, this is amazing.",
-  "",
+  "I don't have a reservation.",
+  "Hard to get restaurant in NYC...",
+  "Alright I'm in the middle of my shift...",
+  "Cab driver.",
+  "Solo lunch.",
+  "Solo dinner.",
+  "Ertan.",
+  "Let's take off the hat.",
+  "Gotta show some respect.",
+  "The hospitality was...",
+  "Tacos, steak, duck..."
 ];
 
 export default function HomePage() {
   return (
     <Box
       sx={{
+        position: "relative",
         display: "flex",
         flexDirection: "column",
-        justifyContent: { xs: "center", md: "center" },
-        alignItems: { xs: "center", md: "center" },
+        justifyContent: "center",
+        alignItems: "center",
         height: "100vh",
         background: "black",
-        textAlign: { xs: "center", md: "center" },
+        overflow: "hidden",
       }}
     >
-      <Typography
-        variant="h1"
-        sx={{
-          fontFamily: "Bitcount Grid Double",
-          fontWeight: "bold",
-          color: "#fbb833	",
-          justifyContent: { xs: "center", md: "center" },
-          mx: "auto",
-        }}
-      >
-        Ertan Eats
-      </Typography>
 
-      <Button
-        type="a"
-        href="/locations"
-        variant="contained"
+      {/**floating words content */}
+      <Box
         sx={{
-          fontFamily: "Bitcount Grid Double",
-          fontSize: "23px",
-          background: "#1e3d6d",
-          marginTop: "10px",
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
         }}
       >
-        Enter Here
-      </Button>
+        {floatingWords.map((word, i) => (
+          <Typography
+            key={i}
+            sx={{
+              position: "absolute",
+              top: `${Math.random() * 90}%`,
+              left: `${Math.random() * 90}%`,
+              fontFamily: "Bitcount Grid Double",
+              fontSize: "18px",
+              color: "white",
+              opacity: 0.3,
+              animation: `floatAround ${
+                4 + Math.random() * 4
+              }s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          >
+            {word}
+          </Typography>
+        ))}
+      </Box>
+
+      {/**main content */}
+      <Box sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontFamily: "Bitcount Grid Double",
+            fontWeight: "bold",
+            color: "#fbb833",
+          }}
+        >
+          Ertan Eats
+        </Typography>
+
+        <Button
+          href="/locations"
+          variant="contained"
+          sx={{
+            fontFamily: "Bitcount Grid Double",
+            fontSize: "23px",
+            background: "#1e3d6d",
+            marginTop: "10px",
+          }}
+        >
+          Enter Here
+        </Button>
+      </Box>
     </Box>
   );
 }
