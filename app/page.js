@@ -23,7 +23,7 @@ const floatingWords = [
   "Let's take off the hat.",
   "Gotta show some respect.",
   "The hospitality was...",
-  "Tacos, steak, duck..."
+  "Tacos, steak, duck...",
 ];
 
 export default function HomePage() {
@@ -40,7 +40,6 @@ export default function HomePage() {
         overflow: "hidden",
       }}
     >
-
       {/**floating words content */}
       <Box
         sx={{
@@ -93,9 +92,24 @@ export default function HomePage() {
             fontSize: "23px",
             background: "#1e3d6d",
             marginTop: "10px",
+            marginRight: "15px",
           }}
         >
           Enter Here
+        </Button>
+
+        <Button
+          href="https://www.instagram.com/newyorkturk/"
+          target="_blank"
+          variant="contained"
+          sx={{
+            fontFamily: "Bitcount Grid Double",
+            fontSize: "23px",
+            background: "#1e3d6d",
+            marginTop: "10px",
+          }}
+        >
+          Instagram
         </Button>
       </Box>
     </Box>
