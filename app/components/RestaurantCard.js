@@ -1,16 +1,10 @@
+"use client";
 import React from "react";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export default function RestaurantCard({ data }) {
   return (
-    <Card sx={{ maxWidth: 345, borderRadius: 3, boxShadow: 3 }}>
+    <Card sx={{ maxWidth: 400, borderRadius: 3, boxShadow: 3 }}>
       {data.image_url && (
         <CardMedia
           component="img"
@@ -20,29 +14,39 @@ export default function RestaurantCard({ data }) {
         />
       )}
       <CardContent>
-        <Typography gutterBottom variant="h4" component="div">
+        <Typography
+          gutterBottom
+          variant="h4"
+          component="div"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Bitcount Grid Double",
+            fontWeight: 700,
+          }}
+        >
           {data.name}
         </Typography>
+        <Typography variant="body2">Located At: {data.address}</Typography>
+        <br></br>
+        <Typography variant="body2">Cuisine: {data.type_of_cuisine}</Typography>
         <Typography variant="body2">
-          {data.address}
+          Michelin Stars: {data.michelin_star}
         </Typography>
-        <Typography variant="body2">
-          {data.type_of_cuisine}
-        </Typography>
-        <Typography variant="body2">
-          {data.michelin_star}
+
+        <Typography
+          component="a"
+          href={data.website}
+          target="_blank"
+          sx={{
+            textDecoration: "none",
+            color: "blue",
+            fontFamily: "Bitcount Grid Double",
+            fontWeight: 400,
+          }}
+        >
+          Visit Website
         </Typography>
       </CardContent>
-      <CardActions>
-        {data.website && (
-          <Button
-            size="small"
-            onClick={() => window.open(data.website, "_blank")}
-          >
-            Visit Website
-          </Button>
-        )}
-      </CardActions>
     </Card>
   );
 }
