@@ -6,11 +6,15 @@ export default function RestaurantCard({ data }) {
   return (
     <Card
       sx={{
-        maxWidth: 400,
+        maxWidth: { xs: "100%", sm: "100%", lg: "100%", xl: 400 },
+        width: "100%",
+        height: "100%",
         borderRadius: 3,
         boxShadow: 3,
         background:
           "linear-gradient(241deg,rgba(81, 13, 97, 1) 0%, rgba(200, 81, 207, 1) 100%)",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       {data.image_url && (
@@ -21,7 +25,7 @@ export default function RestaurantCard({ data }) {
           alt={data.name}
         />
       )}
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           gutterBottom
           variant="h4"
