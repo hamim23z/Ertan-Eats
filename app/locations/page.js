@@ -19,10 +19,11 @@ export default async function LocationsPage() {
       style={{
         display: "grid",
         gap: "1.5rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(clamp(250px, 1fr, 400px), 1fr))",
         padding: "2rem",
         backgroundColor: "black",
         paddingTop: "200px",
+        justifyContent: "center",
       }}
     >
       {restaurants?.map((r) => (
