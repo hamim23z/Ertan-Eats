@@ -1,6 +1,13 @@
 "use client";
-import React from "react";
-import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  Box,
+} from "@mui/material";
 
 export default function RestaurantCard({ data }) {
   return (
@@ -36,7 +43,7 @@ export default function RestaurantCard({ data }) {
         />
       )}
 
-      <CardContent sx={{flexGrow: 1}}>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           gutterBottom
           variant="h5"
@@ -51,33 +58,59 @@ export default function RestaurantCard({ data }) {
           {data.name}
         </Typography>
 
-        <Typography variant="body2" sx={{color: "white"}}>
+        <Typography variant="body2" sx={{ color: "white" }}>
           Located At: {data.address}
         </Typography>
 
-        <Typography variant="body2" sx={{color: "white"}}>
+        <Typography variant="body2" sx={{ color: "white" }}>
           Cuisine: {data.type_of_cuisine}
         </Typography>
 
-        <Typography variant="body2" sx={{color: "white"}}>
+        <Typography variant="body2" sx={{ color: "white" }}>
           Michelin Stars: {data.michelin_star}
         </Typography>
 
-        <Button
-          component="a"
-          href={data.website}
-          target="_blank"
+        {/**box for buttons in the card*/}
+        <Box
           sx={{
-            textDecoration: "none",
-            color: "#b3e5fc",
-            fontFamily: "Bitcount Grid Double",
-            fontWeight: 400,
-            display: "block",
-            mt: 1,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
           }}
         >
-          Visit Website
-        </Button>
+          <Button
+            variant="text"
+            href={data.website}
+            target="_blank"
+            component="a"
+            sx={{
+              textDecoration: "none",
+              color: "#b3e5fc",
+              fontFamily: "Bitcount Grid Double",
+              fontWeight: 400,
+              display: "block",
+              mt: 1,
+              marginRight: "30px",
+            }}
+          >
+            Visit Website
+          </Button>
+
+          <Button
+            variant="text"
+            component="a"
+            sx={{
+              textDecoration: "none",
+              color: "#b3e5fc",
+              fontFamily: "Bitcount Grid Double",
+              fontWeight: 400,
+              display: "block",
+              mt: 1,
+            }}
+          >
+            Read + View More
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );
