@@ -8,8 +8,19 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import DialogCard from "./DialogComponent";
 
 export default function RestaurantCard({ data }) {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Card
       sx={{
@@ -99,6 +110,7 @@ export default function RestaurantCard({ data }) {
           <Button
             variant="text"
             component="a"
+            onClick={handleOpen}
             sx={{
               textDecoration: "none",
               color: "#b3e5fc",
@@ -112,6 +124,12 @@ export default function RestaurantCard({ data }) {
           </Button>
         </Box>
       </CardContent>
+
+      <DialogCard
+        open={open}
+        handleClose={handleClose}
+        data={data}
+      ></DialogCard>
     </Card>
   );
 }
