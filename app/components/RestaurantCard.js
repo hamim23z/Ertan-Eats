@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -13,13 +14,8 @@ import DialogCard from "./DialogComponent";
 export default function RestaurantCard({ data }) {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Card
@@ -58,7 +54,6 @@ export default function RestaurantCard({ data }) {
         <Typography
           gutterBottom
           variant="h5"
-          component="div"
           sx={{
             textAlign: "center",
             fontFamily: "Bitcount Grid Double",
@@ -72,23 +67,14 @@ export default function RestaurantCard({ data }) {
         <Typography variant="body2" sx={{ color: "white" }}>
           Located At: {data.address}
         </Typography>
-
         <Typography variant="body2" sx={{ color: "white" }}>
           Cuisine: {data.type_of_cuisine}
         </Typography>
-
         <Typography variant="body2" sx={{ color: "white" }}>
           Michelin Stars: {data.michelin_star}
         </Typography>
 
-        {/**box for buttons in the card*/}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
           <Button
             variant="text"
             href={data.website}
@@ -99,9 +85,7 @@ export default function RestaurantCard({ data }) {
               color: "#b3e5fc",
               fontFamily: "Bitcount Grid Double",
               fontWeight: 400,
-              display: "block",
-              mt: 1,
-              marginRight: "30px",
+              mr: 3,
             }}
           >
             Visit Website
@@ -109,27 +93,20 @@ export default function RestaurantCard({ data }) {
 
           <Button
             variant="text"
-            component="a"
             onClick={handleOpen}
             sx={{
               textDecoration: "none",
               color: "#b3e5fc",
               fontFamily: "Bitcount Grid Double",
               fontWeight: 400,
-              display: "block",
-              mt: 1,
             }}
           >
             Read + View More
           </Button>
         </Box>
       </CardContent>
-
-      <DialogCard
-        open={open}
-        handleClose={handleClose}
-        data={data}
-      ></DialogCard>
+      
+      <DialogCard open={open} handleClose={handleClose} data={data} />
     </Card>
   );
 }

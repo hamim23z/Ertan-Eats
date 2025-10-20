@@ -7,10 +7,24 @@ import {
   DialogTitle,
   DialogContentText,
 } from "@mui/material";
+import DisplayYoutubeShort from "./DisplayVideo";
 
 export default function DialogCard({ open, handleClose, data }) {
+  const restaurantId = data?.id;
+
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      maxWidth="lg"
+      fullWidth
+      PaperProps={{
+        sx: {
+          height: "80vh",
+          maxHeight: "90vh",
+        },
+      }}
+    >
       <DialogTitle
         variant="h4"
         sx={{
@@ -42,6 +56,10 @@ export default function DialogCard({ open, handleClose, data }) {
           >
             Instagram Video
           </Typography>
+
+          {restaurantId !== undefined && restaurantId !== null ? (
+            <DisplayYoutubeShort restaurantId={restaurantId} />
+          ) : null}
         </Box>
 
         {/**right side of screen */}
