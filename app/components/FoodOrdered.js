@@ -10,7 +10,7 @@ export default function FoodOrdered({ restaurantId }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!restaurantId) {
+    if (restaurantId === undefined || restaurantId === null) {
       setOrders([]);
       setLoading(false);
       return;
