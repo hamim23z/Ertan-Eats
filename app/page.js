@@ -24,6 +24,11 @@ const floatingWords = [
   "Gotta show some respect.",
   "The hospitality was...",
   "Tacos, steak, duck...",
+  "Thank you so much.",
+  "My name's Ertan.",
+  "No pork.",
+  "I'm from Turkey.",
+  "This smells mad good",
 ];
 
 export default function HomePage() {
@@ -55,7 +60,7 @@ export default function HomePage() {
             sx={{
               position: "absolute",
               top: `${Math.random() * 90}%`,
-              left: `${Math.random() * 85}%`,
+              left: `${Math.random() * 90}%`,
               fontFamily: "Bitcount Grid Double",
               fontSize: "18px",
               color: "white",
