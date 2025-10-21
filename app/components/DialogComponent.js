@@ -13,6 +13,7 @@ import FoodOrdered from "./FoodOrdered";
 
 export default function DialogCard({ open, handleClose, data }) {
   const restaurantId = data?.id;
+  const hasValidId = restaurantId !== null && restaurantId !== undefined;
 
   return (
     <Dialog
@@ -39,7 +40,7 @@ export default function DialogCard({ open, handleClose, data }) {
       </DialogTitle>
 
       <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
-        {/*left side of dialog*/}
+        {/**left side of dialog*/}
         <Box
           sx={{
             flex: 1,
@@ -59,7 +60,7 @@ export default function DialogCard({ open, handleClose, data }) {
             Instagram Video
           </Typography>
 
-          {restaurantId ? (
+          {hasValidId ? (
             <DisplayYoutubeShort restaurantId={restaurantId} />
           ) : (
             <Typography sx={{ mt: 2 }}>No video available.</Typography>
@@ -84,16 +85,16 @@ export default function DialogCard({ open, handleClose, data }) {
               justifyContent: "center",
               fontFamily: "Bitcount Grid Double",
               fontWeight: "bold",
-              paddingTop: "30px"
+              paddingTop: "30px",
             }}
           >
             Food Ordered
           </Typography>
 
-          {restaurantId ? (
+          {hasValidId ? (
             <FoodOrdered restaurantId={restaurantId} />
           ) : (
-            <Typography sx={{ py: 2, }}>No food ordered available.</Typography>
+            <Typography sx={{ py: 2 }}>No food ordered available.</Typography>
           )}
         </Box>
       </Box>
