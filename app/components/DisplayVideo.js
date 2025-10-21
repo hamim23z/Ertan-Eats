@@ -17,7 +17,6 @@ export default function DisplayYoutubeShort({ restaurantId }) {
         .from("youtube_short")
         .select("id, video_id")
         .eq("restaurant_id", restaurantId);
-      console.log("Fetched videos:", data, "Error:", error);
 
       if (error) {
         console.error("Error fetching videos:", error);
