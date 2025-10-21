@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Box,
@@ -8,8 +9,11 @@ import {
   DialogContentText,
 } from "@mui/material";
 import DisplayYoutubeShort from "./DisplayVideo";
+import FoodOrdered from "./FoodOrdered";
 
 export default function DialogCard({ open, handleClose, data }) {
+  console.log("Full data object:", data);
+  console.log("Restaurant ID from data:", data?.id);
   const restaurantId = data?.id;
 
   return (
@@ -37,7 +41,7 @@ export default function DialogCard({ open, handleClose, data }) {
       </DialogTitle>
 
       <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
-        {/**left side of screen */}
+        {/* Left side: Instagram Video */}
         <Box
           sx={{
             flex: 1,
@@ -57,12 +61,14 @@ export default function DialogCard({ open, handleClose, data }) {
             Instagram Video
           </Typography>
 
-          {restaurantId !== undefined && restaurantId !== null ? (
+          {restaurantId ? (
             <DisplayYoutubeShort restaurantId={restaurantId} />
-          ) : null}
+          ) : (
+            <Typography sx={{ mt: 2 }}>No video available.</Typography>
+          )}
         </Box>
 
-        {/**right side of screen */}
+        {/* Right side: Food Ordered */}
         <Box
           sx={{
             display: "flex",
@@ -85,7 +91,11 @@ export default function DialogCard({ open, handleClose, data }) {
             Food Ordered
           </Typography>
 
-          {/**in here will probably be another database listing what was ordered + ratings */}
+          {restaurantId ? (
+            <FoodOrdered restaurantId={restaurantId} />
+          ) : (
+            <Typography sx={{ py: 2 }}>No restaurant selected.</Typography>
+          )}
         </Box>
       </Box>
 
