@@ -55,13 +55,13 @@ export default function HomePage() {
             sx={{
               position: "absolute",
               top: `${Math.random() * 90}%`,
-              left: `${Math.random() * 90}%`,
+              left: `${Math.random() * 85}%`,
               fontFamily: "Bitcount Grid Double",
               fontSize: "18px",
               color: "white",
               opacity: 0.3,
               animation: `floatAround ${
-                4 + Math.random() * 4
+                6 + Math.random() * 6
               }s ease-in-out infinite`,
               animationDelay: `${Math.random() * 3}s`,
             }}
