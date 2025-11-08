@@ -88,7 +88,7 @@ export default function DialogCard({ open, handleClose, data }) {
               paddingTop: "30px",
             }}
           >
-            Food Ordered
+            Food Ordered and Rating:
           </Typography>
 
           {hasValidId ? (

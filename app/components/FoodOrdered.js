@@ -57,9 +57,11 @@ export default function FoodOrdered({ restaurantId }) {
           key={order.id}
           sx={{
             mb: 1.5,
-            p: 1.5,
             borderRadius: 2,
             backgroundColor: "rgba(255, 255, 255, 0.08)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
           }}
         >
           <Typography
@@ -76,6 +78,8 @@ export default function FoodOrdered({ restaurantId }) {
             variant="body2"
             sx={{
               color: "black",
+              fontFamily: "Quantico",
+              fontSize: "14px",
             }}
           >
             Rating: {order.rating}

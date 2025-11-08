@@ -64,13 +64,22 @@ export default function RestaurantCard({ data }) {
           {data.name}
         </Typography>
 
-        <Typography variant="body2" sx={{ color: "white" }}>
-          Located At: {data.address}
+        <Typography
+          variant="body2"
+          sx={{ color: "white", fontFamily: "Quantico", pb: "3px" }}
+        >
+          Address: {data.address}
         </Typography>
-        <Typography variant="body2" sx={{ color: "white" }}>
+        <Typography
+          variant="body2"
+          sx={{ color: "white", fontFamily: "Quantico", pb: "3px" }}
+        >
           Cuisine: {data.type_of_cuisine}
         </Typography>
-        <Typography variant="body2" sx={{ color: "white" }}>
+        <Typography
+          variant="body2"
+          sx={{ color: "white", fontFamily: "Quantico", pb: "3px" }}
+        >
           Michelin Stars: {data.michelin_star}
         </Typography>
 
@@ -105,7 +114,7 @@ export default function RestaurantCard({ data }) {
           </Button>
         </Box>
       </CardContent>
-      
+
       <DialogCard open={open} handleClose={handleClose} data={data} />
     </Card>
   );
