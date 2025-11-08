@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Bitcount_Grid_Double } from "next/font/google";
+import { Quantico } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,6 +16,11 @@ const geistMono = Geist_Mono({
 const bitcount = Bitcount_Grid_Double({
   variable: "--font-bitcount",
   subsets: ["latin"],
+});
+
+const quantico = Quantico({
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata = {
