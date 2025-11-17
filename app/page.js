@@ -60,15 +60,15 @@ export default function HomePage() {
             sx={{
               position: "absolute",
               top: `${Math.random() * 90}%`,
-              left: `${Math.random() * 90}%`,
+              left: `${Math.random() * 80}%`,
               fontFamily: "Bitcount Grid Double",
               fontSize: "18px",
               color: "white",
               opacity: 0.3,
               animation: `floatAround ${
-                6 + Math.random() * 6
+                6 + Math.random() * 4
               }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 3}s`,
+              animationDelay: `${Math.random() * 5}s`,
             }}
           >
             {word}
