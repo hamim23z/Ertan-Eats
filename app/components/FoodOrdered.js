@@ -69,6 +69,8 @@ export default function FoodOrdered({ restaurantId }) {
             sx={{
               fontWeight: "bold",
               fontFamily: "Bitcount Grid Double",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: "center"
             }}
           >
             {order.item_name}
