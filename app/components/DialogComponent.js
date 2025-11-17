@@ -57,7 +57,7 @@ export default function DialogCard({ open, handleClose, data }) {
             variant="h6"
             sx={{ fontFamily: "Bitcount Grid Double", fontWeight: "bold" }}
           >
-            Instagram Video
+            YouTube Video
           </Typography>
 
           {hasValidId ? (
